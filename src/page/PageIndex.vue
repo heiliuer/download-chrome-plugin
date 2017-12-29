@@ -1,12 +1,7 @@
 <template>
     <div id="searchPage" class="searchPage page" style="display:block;">
         <div style="padding: 20px;">
-            <input type="text" v-model="key" placeholder="输入关键字" style="padding: 5px;">
-            <span style="font-size: 12px;color:#999;margin-left: 20px;">
-                注：立即下载 &gt; 点击右键 &gt; 链接另存为 &gt;
-                <a href="chrome://extensions/" target="chrome://extensions/"
-                   style="color:#4d90fe;">chrome://extensions/</a>
-            </span>
+            <input type="text" v-model="key" placeholder="输入插件名或者其他关键字" style="padding: 5px;width: 200px;"> <a href="#/help" style="margin-left: 10px;color:#555;">使用帮助</a>
         </div>
         <ul id="searchList" style="display: block;">
             <li class="app-tag search-row" v-for="item in items">
@@ -32,7 +27,7 @@
             return {
                 key: '',
                 items: null,
-                loading:true
+                loading: true
             }
         },
         methods: {
@@ -54,8 +49,8 @@
             fetchData() {
                 const vm = this
                 const {key} = this
-                vm.items=null
-                vm.loading=true
+                vm.items = null
+                vm.loading = true
                 fetch(
                     `http://extension.browser.qq.com/search_v3?key=${key}`,
                     {method: 'get'}
@@ -64,9 +59,9 @@
                     const itemList = json['result_list']['value'].map(item => JSON.parse(item['doc_meta']))
                     console.log(itemList)
                     vm.items = itemList
-                    vm.loading=null
+                    vm.loading = null
                 }).catch(res => {
-                    vm.loading=false
+                    vm.loading = false
                     console.error(res)
                 })
             }
