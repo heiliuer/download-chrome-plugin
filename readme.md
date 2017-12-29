@@ -2,5 +2,6 @@
 
 > chrome 插件下载工具
 
-## Build Setup
+## demo
+[https://heiliuer.github.io/download-chrome-plugin/](https://heiliuer.github.io/download-chrome-plugin/)
 
