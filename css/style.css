@@ -9,6 +9,11 @@ body, button, input, select, textarea {
     font: 12px/1 Microsoft Yahei, "\5b8b\4f53", "黑体", Tahoma, Helvetica, Arial, sans-serif
 }
 
+html,body{
+    height: 100vh;
+    overflow: hidden;
+}
+
 h1 {
     font-size: 18px
 }
@@ -1469,6 +1474,11 @@ p.category-app-title {
 
 .searchPage li, .searchPage ul {
     display: -webkit-box
+}
+
+.searchPage ul{
+    max-height: calc(100vh - 120px);
+    overflow-y: scroll;
 }
 
 .searchPage li {
