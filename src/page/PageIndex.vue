@@ -88,7 +88,12 @@
             }
         },
         beforeCreate() {
-            this.fetchDataD = this._.debounce(() => this.fetchData(), 100)
+            this.fetchDataD = this._.debounce(() => {
+                if(!this.key){
+                    return
+                }
+                this.fetchData()
+            }, 100)
         },
         created() {
             const vm = this
