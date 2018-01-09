@@ -36,7 +36,7 @@
         name: "page-index",
         data() {
             return {
-                key: 'vue',
+                key: '',
                 items: null,
                 loading: false,
                 pageNum: 0
