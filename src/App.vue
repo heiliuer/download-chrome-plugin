@@ -9,9 +9,6 @@
         name: 'app',
         data() {
             return {}
-        },
-        created(){
-            console.log(this)
         }
     }
 </script>
