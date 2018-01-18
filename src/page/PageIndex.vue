@@ -36,7 +36,7 @@
         name: "page-index",
         data() {
             return {
-                key: '',
+                key: this.$route.query['key'] || '',
                 items: null,
                 loading: false,
                 pageNum: 0
@@ -96,12 +96,13 @@
         watch: {
             key() {
                 const scrollUL = this.$refs['scrollUL']
-                if(scrollUL){
+                if (scrollUL) {
                     scrollUL.scrollTop = 0
                 }
                 this.items = null
                 this.pageNum = 0
                 this.fetchDataD()
+                this.$router.replace({path: this.$route.path, query: {key: this.key}})
             }
         }
     }
