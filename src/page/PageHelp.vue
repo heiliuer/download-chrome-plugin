@@ -14,7 +14,7 @@
         <fieldset style="padding: 20px;">
             <legend>搜索没反应</legend>
             <span style="font-size: 12px;color:#999;vertical-align: top;">
-                点击地址栏 小按钮 <img src="img/1514531631(1).jpg" style="margin-left: 10px;" alt="">
+                点击地址栏 小按钮 <img src="../assets/error_tip.jpg" style="margin-left: 10px;" alt="">
             </span>
         </fieldset>
 
@@ -22,9 +22,9 @@
 </template>
 
 <script>
-    export default {
-        name: "page-help"
-    }
+export default {
+  name: 'page-help'
+}
 </script>
 
 <style scoped>

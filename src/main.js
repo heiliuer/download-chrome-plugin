@@ -1,22 +1,14 @@
 import Vue from 'vue'
-import App from './App.vue'
-import VueRouter from 'vue-router'
-
+import App from './App'
 import router from './router'
-import lodash from 'lodash'
+import _ from 'lodash'
+Vue.prototype.$_ = _
+Vue.config.productionTip = false
 
-// import axios from 'axios'
-// Vue.prototype.axios = axios
-// axios.defaults.baseURL = 'http://extension.browser.qq.com/'
-// axios.defaults.headers.post['Content-Type'] = 'application/json'
-
-Vue.prototype._ = lodash
-
-Vue.use(VueRouter)
-
-
+/* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router: new VueRouter(router),
-    render: h => h(App)
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App />'
 })

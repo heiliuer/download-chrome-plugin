@@ -1,22 +1,17 @@
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'app',
-        data() {
-            return {}
-        }
-    }
+
+import './scss/style.scss'
+
+export default {
+  name: 'App'
+}
 </script>
 
-<style scoped>
-    #app {
-        width: 1190px;
-        margin: 0 auto;
-        margin-top: 48px;
-    }
+<style>
 </style>
