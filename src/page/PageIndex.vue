@@ -39,6 +39,7 @@ export default {
       key: this.$route.query['key'] || '',
       items: null,
       loading: false,
+      allLoaded: false,
       pageNum: 0
     }
   },
@@ -46,17 +47,20 @@ export default {
     fetchData () {
       const vm = this
       const {key} = this
-      this.loading = true
+      if (vm.allLoaded) {
+        return
+      }
       if (this._fetchDataFlag) this._fetchDataFlag.cancel = true
       const fetchDataFlag = this._fetchDataFlag = {
         cancel: false
       }
+      this.loading = true
       const pageNum = this.pageNum++
       fetch(`http://extension.browser.qq.com/search_v3?key=${key}&pageNum=${pageNum}`, {method: 'get'})
         .then(res => res.json()).then(json => {
           if (fetchDataFlag.cancel) return
-          if (json['result_num'] === 0 && pageNum > 0) {
-            vm.pageNum = -1
+          if (json['result_num'] === 0) {
+            vm.allLoaded = true
           } else {
             // log(json)
             const itemList = json['result_list']['value'].map(item => JSON.parse(item['doc_meta']))
@@ -101,6 +105,7 @@ export default {
       }
       this.items = null
       this.pageNum = 0
+      this.allLoaded = false
       this.fetchDataD()
       this.$router.replace({path: this.$route.path, query: {key: this.key}})
     }
